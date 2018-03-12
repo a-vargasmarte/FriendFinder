@@ -1,14 +1,16 @@
 // Dependencies
 // ===========================================================
-const express = require("express");
-
-const app = express();
+const path = require("path");
 
 // Routes
 // ===========================================================
-app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "survey.html"));
-});
-app.get("/survey", function (req, res) {
-    res.sendFile(path.join(__dirname, "home.html"));
-});
+module.exports = function (app) {
+
+    app.get("/", (req, res) => {
+        res.sendFile(path.join(__dirname + `/../public/home.html`));
+    });
+    app.get("/survey", (req, res) => {
+        res.sendFile(path.join(__dirname + `/../public/survey.html`));
+    });
+
+}
