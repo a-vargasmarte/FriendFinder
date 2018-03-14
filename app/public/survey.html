@@ -244,18 +244,32 @@
                 scoreArray.forEach(score => {
                     numberScores.push(parseInt(score));
                 });
-                console.log(scoreArray);
+                // console.log(scoreArray);
                 console.log(numberScores);
                 const newFriend = {
-                    name: $("#name").val().trim(),
-                    photo: $("#photo").val().trim(),
+                    name: $("#name").val(),
+                    photo: $("#photo").val(),
+                    // scores: [
+                    //     $("#q1").val(),
+                    //     $("#q2").val(),
+                    //     $("#q3").val(),
+                    //     $("#q4").val(),
+                    //     $("#q5").val(),
+                    //     $("#q6").val(),
+                    //     $("#q7").val(),
+                    //     $("#q8").val(),
+                    //     $("#q9").val(),
+                    //     $("#q10").val()
+                    // ]
+                    scores: numberScores
                 };
 
                 // use the .post method to post the newFriend to /api/friends
                 $.post("/api/friends", newFriend)
                     .then(function (data) {
-                        data.scores = numberScores;
+                        // data.scores = numberScores;
                         console.log(data);
+                        console.log(newFriend);
 
                     });
             })

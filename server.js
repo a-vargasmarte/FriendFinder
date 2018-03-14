@@ -11,7 +11,7 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 // sets up express app to handle data parsing
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // start our server so it can begin listening to client
